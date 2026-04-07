@@ -1,0 +1,43 @@
+﻿
+============================================================
+Task: eligibility_screening  |  Model: gpt-4o-mini
+============================================================
+  [API error] Connection error.
+  Step  1 | PT-001 | decision=hold_pending_review          | reward=+0.000 | cumulative=0.000
+  [API error] Connection error.
+  Step  2 | PT-002 | decision=hold_pending_review          | reward=+0.800 | cumulative=0.800
+  [API error] Connection error.
+  Step  3 | PT-003 | decision=hold_pending_review          | reward=+0.800 | cumulative=1.600
+  [API error] Connection error.
+  Step  4 | PT-004 | decision=hold_pending_review          | reward=+0.000 | cumulative=1.600
+  [API error] Connection error.
+  Step  5 | PT-005 | decision=hold_pending_review          | reward=+0.800 | cumulative=2.400
+  [API error] Connection error.
+  Step  6 | PT-006 | decision=hold_pending_review          | reward=+0.800 | cumulative=3.200
+  [API error] Connection error.
+  Step  7 | PT-007 | decision=hold_pending_review          | reward=+0.000 | cumulative=3.200
+  [API error] Connection error.
+  Step  8 | PT-008 | decision=hold_pending_review          | reward=+0.800 | cumulative=4.000
+  [API error] Connection error.
+  Step  9 | PT-009 | decision=hold_pending_review          | reward=+0.800 | cumulative=4.800
+  [API error] Connection error.
+  Step 10 | PT-010 | decision=hold_pending_review          | reward=+0.000 | cumulative=4.800
+
+  Final score : 0.48
+  Violations  : 0
+  Missed SAEs : 0
+
+[ERROR] Task lab_dose_management failed:
+
+[ERROR] Task sae_triage failed:
+
+============================================================
+BASELINE SCORES
+============================================================
+  eligibility_screening          0.4800  ##############
+  lab_dose_management            -1.0000  
+  sae_triage                     -1.0000  
+
+Total runtime: 32.4s
+============================================================
+{"scores": {"eligibility_screening": 0.48, "lab_dose_management": -1.0, "sae_triage": -1.0}, "model": "gpt-4o-mini", "seed": 42, "runtime_seconds": 32.4}
