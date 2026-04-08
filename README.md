@@ -1,3 +1,21 @@
+---
+title: ClinicalTrialOps-Env
+emoji: 🏥
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: true
+license: mit
+tags:
+  - openenv
+  - healthcare
+  - clinical-trials
+  - reinforcement-learning
+  - agent-evaluation
+  - pharma
+  - real-world
+short_description: OpenEnv agent environment — clinical trial coordinator AI
+---
 # ClinicalTrialOps-Env
 
 **OpenEnv-compliant environment** — AI agent as clinical trial coordinator.
