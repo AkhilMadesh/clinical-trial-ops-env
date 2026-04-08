@@ -1,13 +1,28 @@
 [build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
 
 [project]
 name = "clinical-trial-ops-env"
 version = "1.0.0"
-description = "Clinical trial coordinator simulation for a fictional Phase II NSCLC oncology study"
+description = "OpenEnv-compliant AI agent environment simulating a clinical trial coordinator for Phase II NSCLC oncology study"
 readme = "README.md"
-requires-python = ">=3.9"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+keywords = [
+    "openenv",
+    "reinforcement-learning",
+    "clinical-trials",
+    "healthcare",
+    "agent-evaluation",
+    "pharma",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
 dependencies = [
     "fastapi==0.111.0",
     "uvicorn[standard]==0.30.1",
@@ -16,5 +31,36 @@ dependencies = [
     "openai==1.35.3",
     "httpx==0.27.0",
     "python-multipart==0.0.9",
-    "aiofiles==23.2.1"
+    "aiofiles==23.2.1",
+    "openenv-core>=0.2.0",
+]
+
+[project.scripts]
+server = "server.app:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["env*", "server*"]
+
+[openenv]
+name = "clinical-trial-ops-env"
+version = "1.0.0"
+entry_point = "api:app"
+reset_endpoint = "/reset"
+step_endpoint = "/step"
+state_endpoint = "/state"
+tasks_endpoint = "/tasks"
+reward_range = [-0.20, 1.0]
+observation_type = "ClinicalObservation"
+action_type = "ClinicalAction"
+tasks = [
+    "eligibility_screening",
+    "lab_dose_management",
+    "sae_triage",
 ]
