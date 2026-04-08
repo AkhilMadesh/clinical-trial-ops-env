@@ -2,20 +2,20 @@ name: clinical-trial-ops-env
 version: "1.0.0"
 description: >
   Clinical trial coordinator simulation for a fictional Phase II NSCLC oncology
-  study (LUMINOS-201, drug: Velitinib). An AI agent processes patient cases
+  study (LUMINOS-201, drug: Velitinib). AI agent processes patient cases
   requiring decisions on protocol eligibility, lab-based dose modifications,
-  and serious adverse event (SAE) triage under FDA/ICH regulatory constraints.
+  and SAE triage under FDA/ICH regulatory constraints.
 
-entry_point: "api:app"
+entry_point: "server.app:app"
 host: "0.0.0.0"
 port: 7860
 
 endpoints:
-  reset:   "POST /reset"
-  step:    "POST /step"
-  state:   "GET  /state"
-  tasks:   "GET  /tasks"
-  health:  "GET  /health"
+  reset:  "POST /reset"
+  step:   "POST /step"
+  state:  "GET  /state"
+  tasks:  "GET  /tasks"
+  health: "GET  /health"
 
 tasks:
   - id: eligibility_screening
@@ -47,7 +47,6 @@ tags:
   - healthcare
   - pharma
   - clinical-trials
-  - compliance
   - real-world
   - safety-critical
 
