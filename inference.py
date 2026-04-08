@@ -103,6 +103,8 @@ def parse_action(response_text: str) -> Action:
 def run_task(task_id: str, seed: int = 42, verbose: bool = True) -> float:
     env = ClinicalTrialEnv(task_id=task_id, seed=seed)
     obs = env.reset()
+    print(f"[START] task={task_id}", flush=True)
+
     step_rewards: list[float] = []
     done = False
 
@@ -132,6 +134,9 @@ def run_task(task_id: str, seed: int = 42, verbose: bool = True) -> float:
         obs, reward, done, info = env.step(action)
         step_rewards.append(reward)
 
+        # Structured output for validator
+        print(f"[STEP] step={info['step']+1} reward={reward}", flush=True)
+
         if verbose:
             print(
                 f"  Step {info['step']+1:>2} | {info['patient_id']} "
@@ -145,6 +150,9 @@ def run_task(task_id: str, seed: int = 42, verbose: bool = True) -> float:
 
     mean_score = round(sum(step_rewards) / len(step_rewards), 4)
     summary = env.episode_summary()
+
+    # Structured output for validator
+    print(f"[END] task={task_id} score={mean_score} steps={len(step_rewards)}", flush=True)
 
     if verbose:
         print(f"\n  Final score : {mean_score}")
